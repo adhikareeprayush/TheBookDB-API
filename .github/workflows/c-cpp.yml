@@ -1,41 +1,33 @@
 name: C/C++ CI
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: gcc installation
-      run: sudo apt install gcc
-    - name: g++ installation
-      run: sudo apt install g++
-    - name: cmake installation
-      run: sudo apt install cmake
-    - name: jsoncpp instllation
-      run: sudo apt install libjsoncpp-dev
-    - name: uuid installation
-      run: sudo apt install uuid-dev
-    - name: zlib installation
-      run: sudo apt install zlib1g-dev
-    - name: openssl installation
-      run: sudo apt install openssl
-    - name: libssl-dev installation
-      run: sudo apt install libssl-dev
-    - name: cd build
-      run : cd build
-    - name: cmake build
-      run: cmake ..
-    - name: make
-      run: make
-    - name: run
-      run: ./MyDrogonAPI
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libjsoncpp-dev uuid-dev zlib1g-dev openssl libssl-dev
+    - name: Install Drogon
+      run: |
+        git clone https://github.com/drogonframework/drogon
+        cd drogon
+        mkdir build && cd build
+        cmake ..
+        make && sudo make install
+    - name: Build project
+      run: |
+        mkdir build && cd build
+        cmake ..
+        make
+    - name: Test run
+      run: |
+        cd build
+        ./MyDrogonAPI &
+        sleep 10
+        kill $!
