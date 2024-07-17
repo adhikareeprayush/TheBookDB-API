@@ -1,35 +1,21 @@
-name: C/C++ CI
+name: Deploy to Railway
+
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libjsoncpp-dev uuid-dev zlib1g-dev openssl libssl-dev
-    - name: Install Drogon
-      run: |
-        git clone https://github.com/drogonframework/drogon
-        cd drogon
-        git submodule update --init --recursive
+    branches:
+      - main
 
-        mkdir build && cd build
-        cmake ..
-        make && sudo make install
-    - name: Build project
-      run: |
-        cd build
-        cmake ..
-        make
-    - name: Test run
-      run: |
-        cd build
-        ./MyDrogonAPI &
-        sleep 10
-        kill $!
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to Railway
+      uses: railwayapp/action-deploy@1.1.0
+      with:
+        railway_token: ${{ secrets.RAILWAY_TOKEN }}
+        project_id: ${{ secrets.RAILWAY_PROJECT_ID }}
+        environment: production
