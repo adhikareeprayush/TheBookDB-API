@@ -1,10 +1,10 @@
-bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,ratings_count,text_reviews_count,publication_date,publisher
+bookID,title,authors,avgRating,isbn,isbn13,languageCode,numPages,ratingsCount,textReviewsCount,publicationDate,publisher
 1,Harry Potter and the Half-Blood Prince (Harry Potter  #6),J.K. Rowling/Mary GrandPré,4.57,0439785960,9780439785969,eng,652,2095690,27591,9/16/2006,Scholastic Inc.
 2,Harry Potter and the Order of the Phoenix (Harry Potter  #5),J.K. Rowling/Mary GrandPré,4.49,0439358078,9780439358071,eng,870,2153167,29221,9/1/2004,Scholastic Inc.
 4,Harry Potter and the Chamber of Secrets (Harry Potter  #2),J.K. Rowling,4.42,0439554896,9780439554893,eng,352,6333,244,11/1/2003,Scholastic
 5,Harry Potter and the Prisoner of Azkaban (Harry Potter  #3),J.K. Rowling/Mary GrandPré,4.56,043965548X,9780439655484,eng,435,2339585,36325,5/1/2004,Scholastic Inc.
 8,Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5),J.K. Rowling/Mary GrandPré,4.78,0439682584,9780439682589,eng,2690,41428,164,9/13/2004,Scholastic
-9,Unauthorized Harry Potter Book Seven News: "Half-Blood Prince" Analysis and Speculation,W. Frederick Zimmerman,3.74,0976540606,9780976540601,en-US,152,19,1,4/26/2005,Nimble Books
+9,""Unauthorized Harry Potter Book Seven News: "Half-Blood Prince" Analysis and Speculation"",W. Frederick Zimmerman,3.74,0976540606,9780976540601,en-US,152,19,1,4/26/2005,Nimble Books
 10,Harry Potter Collection (Harry Potter  #1-6),J.K. Rowling,4.73,0439827604,9780439827607,eng,3342,28242,808,9/12/2005,Scholastic
 12,The Ultimate Hitchhiker's Guide: Five Complete Novels and One Story (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,0517226952,9780517226957,eng,815,3628,254,11/1/2005,Gramercy Books
 13,The Ultimate Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy  #1-5),Douglas Adams,4.38,0345453743,9780345453747,eng,815,249558,4080,4/30/2002,Del Rey Books
@@ -28,7 +28,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 37,The Lord of the Rings: Complete Visual Companion,Jude Fisher,4.50,0618510826,9780618510825,eng,224,359,6,11/15/2004,Houghton Mifflin Harcourt
 45,Agile Web Development with Rails: A Pragmatic Guide,Dave Thomas/David Heinemeier Hansson/Leon Breedt/Mike Clark/Thomas  Fuchs/Andreas  Schwarz,3.84,097669400X,9780976694007,eng,558,1430,59,7/28/2005,Pragmatic Bookshelf
 50,Hatchet (Brian's Saga  #1),Gary Paulsen,3.72,0689840926,9780689840920,eng,208,270244,12017,4/1/2000,Atheneum Books for Young Readers: Richard Jackson Books
-51,Hatchet: A Guide for Using "Hatchet" in the Classroom,Donna Ickes/Edward Sciranko/Keith Vasconcelles,4.00,1557344493,9781557344496,eng,48,36,2,8/28/1994,Teacher Created Resources
+51,""Hatchet: A Guide for Using "Hatchet" in the Classroom"",Donna Ickes/Edward Sciranko/Keith Vasconcelles,4.00,1557344493,9781557344496,eng,48,36,2,8/28/1994,Teacher Created Resources
 53,Guts: The True Stories behind Hatchet and the Brian Books,Gary Paulsen,3.88,0385326505,9780385326506,eng,144,2067,334,1/23/2001,Delacorte Press
 54,Molly Hatchet - 5 of the Best,Molly Hatchet,4.33,1575606240,9781575606248,eng,56,6,0,6/10/2003,Cherry Lane Music Company
 55,Hatchet Jobs: Writings on Contemporary Fiction,Dale Peck,3.45,1595580271,9781595580276,en-US,228,99,16,11/1/2005,The New Press
@@ -104,7 +104,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 166,Dalit: The Black Untaouchables of India,V.T. Rajshekar/Y.N. Kly,4.20,0932863051,9780932863058,eng,100,10,0,1/28/1995,Clarity Press
 168,Growing Up Untouchable in India: A Dalit Autobiography,Vasant Moon/Gail Omvedt/Eleanor Zelliot,3.65,0742508803,9780742508804,eng,224,16,4,12/20/2000,Rowman & Littlefield Publishers
 171,The Evidence-Based Social Work Skills Book,Barry R. Cournoyer,3.40,0205358624,9780205358625,eng,216,10,0,9/22/2003,Pearson
-177,A Wrinkle in Time: A Guide for Using "A Wrinkle in Time" in the Classroom,John Carratello/Patty Carratello/Theresa Wright,4.00,1557344035,9781557344038,eng,48,17,0,9/28/1991,Teacher Created Resources
+177,""A Wrinkle in Time: A Guide for Using "A Wrinkle in Time" in the Classroom"",John Carratello/Patty Carratello/Theresa Wright,4.00,1557344035,9781557344038,eng,48,17,0,9/28/1991,Teacher Created Resources
 180,Wrinkles in Time,George Smoot/Keay Davidson,4.01,0380720442,9780380720446,eng,360,1035,23,10/1/1994,Harper Perennial
 181,A Wrinkle in Time: With Related Readings (A Wrinkle in Time Quintet #1),Madeleine L'Engle,4.00,0821925326,9780821925324,eng,250,36,6,5/1/2002,EMC/Paradigm Publishing
 182,Literature Circle Guide: A Wrinkle in Time,Tara MacCarthy,3.60,043927169X,9780439271691,eng,32,15,0,1/1/2002,Teaching Resources
@@ -246,7 +246,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 675,Sailing from Byzantium: How a Lost Empire Shaped the World,Colin  Wells,3.88,0553803816,9780553803815,eng,368,646,83,7/25/2006,Delacorte Press
 676,Sailing Alone Around the Room: New and Selected Poems,Billy Collins,4.23,0375755195,9780375755194,eng,192,12180,630,9/17/2002,Random House Trade Paperbacks
 678,The Greatest Sailing Stories Ever Told: Twenty-Seven Unforgettable Stories,Christopher Caswell,3.62,1592283195,9781592283194,eng,286,51,5,4/1/2004,Lyons Press
-681,Natural Cures "They" Don't Want You to Know about,Kevin Trudeau,3.09,0975599518,9780975599518,en-US,571,1601,284,1/1/2004,Alliance Publishing
+681,""Natural Cures "They" Don't Want You to Know about"",Kevin Trudeau,3.09,0975599518,9780975599518,en-US,571,1601,284,1/1/2004,Alliance Publishing
 685,The Natural,Bernard Malamud/Kevin Baker,3.63,0374502005,9780374502003,eng,231,8854,672,7/7/2003,Farrar Straus Giroux
 698,Digging to America,Anne Tyler,3.55,0307263940,9780307263940,eng,277,17155,1841,5/2/2006,Alfred A. Knopf
 700,Rereading America: Cultural Contexts for Critical Thinking and Writing,Gary Colombo/Bonnie Lisle,3.77,0312405545,9780312405540,eng,826,44,3,1/21/2004,Bedford Books
@@ -621,7 +621,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 2019,The Birds (Methuen Drama),Sean O'Brien,2.67,0413772780,9780413772787,en-GB,96,3,1,7/22/2002,Bloomsbury Methuen Drama
 2022,The Frogs,Aristophanes/B.B. Rogers,3.80,1420926713,9781420926712,en-US,88,3,1,1/1/2005,Digireads.com
 2025,Lysistrata,Aristophanes/Jeffrey Henderson,3.85,0198144962,9780198144960,eng,320,76,6,6/21/1990,OUP Oxford
-2026,Myths of the Underworld Journey: Plato  Aristophanes  and the "Orphic" Gold Tablets,Radcliffe G. Edmonds III,3.75,0521834341,9780521834346,eng,276,3,0,11/18/2004,Cambridge University Press
+2026,""Myths of the Underworld Journey: Plato  Aristophanes  and the "Orphic" Gold Tablets"",Radcliffe G. Edmonds III,3.75,0521834341,9780521834346,eng,276,3,0,11/18/2004,Cambridge University Press
 2028,Assembly of Women (Literary Classics),Aristophanes/Robert Mayhew,3.77,1573921335,9781573921336,en-GB,124,56,4,4/1/1997,Prometheus Books
 2034,Comoediae 1: Acharenses/Equites/Nubes/Vespae/Pax/Aves,Aristophanes/F.W. Hall/W.M. Geldart,5.00,0198145047,9780198145042,grc,364,0,0,2/22/1922,Oxford University Press  USA
 2043,Aristophanes and His Theatre of the Absurd,Paul Anthony Cartledge,3.86,1853991147,9781853991141,eng,127,7,1,6/1/1991,Bristol Classical Press
@@ -747,7 +747,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 2407,Melville's Moby Dick: An American Nekyia (Studies in Jungian Psychology by Jungian Analysts),Edward F. Edinger,3.93,0919123708,9780919123700,eng,156,23,4,4/30/2004,Inner City Books
 2409,Moby Dick: Or  the White Whale (Oxford Illustrated Classics Series),Geraldine McCaughrean/Victor G. Ambrus/Herman Melville,3.82,019274156X,9780192741561,eng,102,6,0,4/3/1997,Oxford University Press  USA
 2411,Melville and the politics of identity: From *King Lear* to *Moby-Dick*,Julian Markels,3.33,0252063023,9780252063022,eng,164,0,0,7/1/1993,University of Illinois Press
-2412,Unpainted to the Last: "Moby Dick" and Twentieth-century American Art,Elizabeth A. Schultz,4.28,0700607420,9780700607426,eng,400,16,1,10/20/1995,University Press of Kansas
+2412,""Unpainted to the Last: "Moby Dick" and Twentieth-century American Art"",Elizabeth A. Schultz,4.28,0700607420,9780700607426,eng,400,16,1,10/20/1995,University Press of Kansas
 2423,Double Tap (Paul Madriani  #8),Steve Martini,3.92,0515139734,9780515139730,en-US,401,2790,159,12/27/2005,Jove Books
 2430,The List,Steve Martini,3.96,0515121495,9780515121490,eng,451,12534,141,12/1/1997,Jove
 2442,Witches Abroad (Discworld  #12; Witches #3),Terry Pratchett,4.22,0061020613,9780061020612,eng,374,58408,1272,7/30/2002,HarperTorch
@@ -1568,7 +1568,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 5375,The Dragon's Eye (Erec Rex  #1),Kaza Kingsley/Melvyn Grant,4.00,0978655567,9780978655563,eng,341,59,8,10/1/2006,Firelight Press
 5376,Dragon's Eye (Stonefort  #1),James A. Hetley,3.43,0441013724,9780441013722,en-US,368,133,16,10/31/2006,Ace
 5396,Dragon's Eye,Christopher Stasheff/William R. Forstchen/Nick DiChario/S.N. Lewitt/Bill Fawcett/Mike Resnick/Mickey Zucker Reichert/S.M. Stirling/Diane Duane/Jody Lynn Nye/Roland J. Green/Teresa Patterson/Judith R. Conly,3.51,0671876090,9780671876098,en-GB,279,41,7,7/1/1994,Baen Books
-5402,"Stand Back " Said the Elephant  "I'm Going to Sneeze!",Patricia Thomas/Wallace Tripp,4.39,0688093388,9780688093389,eng,32,1004,130,4/23/1990,William Morrow & Company  Inc.
+5402,"""Stand Back " Said the Elephant  "I'm Going to Sneeze!""",Patricia Thomas/Wallace Tripp,4.39,0688093388,9780688093389,eng,32,1004,130,4/23/1990,William Morrow & Company  Inc.
 5404,Here I Stand: A Life of Martin Luther,Roland H. Bainton,4.08,0452011469,9780452011465,eng,336,2841,224,4/1/1995,Plume Books
 5412,The Stand: Das letzte Gefecht,Stephen King/Joachim Körber,4.34,3404134117,9783404134113,ger,1227,256,16,9/1/2003,Bastei Lübbe
 5413,'Salem's Lot,Stephen King/Jerry N. Uelsmann,4.25,0385516487,9780385516488,eng,594,84123,571,11/1/2005,Doubleday
@@ -1846,7 +1846,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 6544,The Scarpetta Collection: All That Remains / Cruel & Unusual (Kay Scarpetta  #3  #4),Patricia Cornwell,4.16,074325581X,9780743255813,eng,672,30,2,11/11/2003,Scribner
 6545,In the Dark of the Night,John Saul,3.88,034548701X,9780345487018,eng,324,4278,178,7/18/2006,Ballantine Books
 6546,Perfect Nightmare,John Saul,3.89,0345467329,9780345467324,eng,384,3721,236,4/25/2006,Ballantine Books
-6549,  said the shotgun to the head.,Saul Williams,4.22,0743470796,9780743470797,en-US,192,2762,214,9/1/2003,MTV Books
+6549,said the shotgun to the head.,Saul Williams,4.22,0743470796,9780743470797,en-US,192,2762,214,9/1/2003,MTV Books
 6550,Early Color,Saul Leiter/Martin Harrison,4.73,3865211399,9783865211392,eng,156,144,8,1/15/2006,Steidl
 6551,Herzog,Saul Bellow/Philip Roth,3.78,0142437298,9780142437292,eng,371,16550,813,2/25/2003,Penguin Classics
 6552,Midnight Voices,John Saul/Joe Blades,3.75,0449006530,9780449006535,eng,384,2756,142,3/4/2003,Ballantine Books
@@ -2531,7 +2531,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 9326,Fullmetal Alchemist  Vol. 5 (Fullmetal Alchemist  #5),Hiromu Arakawa/Akira Watanabe,4.56,1421501759,9781421501758,eng,200,12885,208,1/10/2006,VIZ Media LLC
 9327,The House of the Spirits,Isabel Allende/Magda Botin,4.23,0552995886,9780552995887,eng,491,1021,112,8/8/1986,Black Swan
 9330,The House of the Spirits,Isabel Allende/Madga Bogin/Christopher Hitchens,4.23,1400043182,9781400043187,eng,488,270,49,4/19/2005,Everyman's Library
-9337,How To Meditate: An Anthology Of Talks On Meditation And "Meditation: The Bridge Is Flowing But The River Is Not",Frederick P. Lenz,0.00,1932206108,9781932206104,eng,228,0,0,1/1/2004,Frederick P. Lenz Foundation for American Buddhism
+9337,""How To Meditate: An Anthology Of Talks On Meditation And "Meditation: The Bridge Is Flowing But The River Is Not""",Frederick P. Lenz,0.00,1932206108,9781932206104,eng,228,0,0,1/1/2004,Frederick P. Lenz Foundation for American Buddhism
 9338,Insights: Talks On The Nature Of Existence,Frederick P. Lenz,0.00,1932206086,9781932206081,eng,304,0,0,1/1/2003,Frederick P. Lenz Foundation for American Buddhism
 9345,Palestine: Peace Not Apartheid,Jimmy Carter,3.82,0743285026,9780743285025,eng,288,2864,349,11/30/2006,Simon & Schuster
 9346,Our Endangered Values: America's Moral Crisis,Jimmy Carter,3.88,0743285018,9780743285018,eng,224,3193,236,9/26/2006,Simon  Schuster
@@ -2673,7 +2673,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 9820,Crossing to Safety,Wallace Stegner/Terry Tempest Williams/T.H. Watkins,4.16,037575931X,9780375759314,eng,368,31394,4262,4/9/2002,Modern Library
 9826,Oh Rats! The Story of Rats and People,Albert Marrin/C.B. Mordan,3.77,0525477624,9780525477624,eng,48,432,90,8/17/2006,Dutton Books for Young Readers
 9827,King Rat (Asian Saga  #4),James Clavell,4.14,0385333765,9780385333764,eng,368,28103,643,5/19/2009,Delta
-9828,Rat Bastards: The Life and Times of South Boston's Most Honorable Irish Mobster,John "Red" Shea/Mark Wahlberg,3.51,0060837160,9780060837167,eng,304,34,3,3/14/2006,William Morrow
+9828,Rat Bastards: The Life and Times of South Boston's Most Honorable Irish Mobster,""John "Red" Shea/Mark Wahlberg"",3.51,0060837160,9780060837167,eng,304,34,3,3/14/2006,William Morrow
 9831,Julius Knipl  Real Estate Photographer: The Beauty Supply District,Ben Katchor,4.35,0375700986,9780375700989,eng,120,174,16,8/12/2003,Pantheon
 9832,Blind Willow  Sleeping Woman: 24 Stories,Haruki Murakami/Ellen Archer/Patrick Lawlor,3.84,1400102952,9781400102952,eng,0,28,3,10/15/2006,Tantor Media
 9833,Blind Willow  Sleeping Woman,Haruki Murakami/Philip Gabriel/Jay Rubin,3.84,1400044618,9781400044610,eng,333,22847,1280,8/29/2006,Alfred A. Knopf
@@ -2757,7 +2757,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 10172,Wigfield: The Can-Do Town That Just May Not,Amy Sedaris/Stephen Colbert/Paul Dinello,3.58,1565117727,9781565117723,eng,5,81,19,5/19/2004,Highbridge Audio
 10173,The SantaLand Diaries and Season's Greetings,David Sedaris/Joe Mantello,4.18,0822216310,9780822216315,eng,54,584,34,12/1/1998,Dramatists Play Service
 10174,Jenny and the Jaws of Life: Short Stories,Jincy Willett/David Sedaris,3.74,0312306180,9780312306182,en-US,272,1307,178,9/14/2002,St. Martin's Griffin
-10200,Venac sonetnih venaca; Puževa srma,Dobrica Erić,0.00,8644101277,9788644101277,srp,222,0,0,1/1/1996,Izdavačka agencija "Draganić"
+10200,Venac sonetnih venaca; Puževa srma,Dobrica Erić,0.00,8644101277,9788644101277,srp,222,0,0,1/1/1996,""Izdavačka agencija "Draganić"""
 10203,View With a Grain of Sand: Selected Poems,Wisława Szymborska/Stanisław Barańczak/Clare Cavanagh,4.33,0156002167,9780156002165,eng,214,3479,211,5/26/1995,Mariner Books
 10204,View with a Grain of Sand: Selected Poems,Wisława Szymborska,4.33,0571191630,9780571191635,eng,214,33,7,10/23/1996,Faber  Faber
 10205,Poems New and Collected,Wisława Szymborska/Clare Cavanagh,4.43,0156011468,9780156011464,eng,296,2561,120,11/16/2000,Mariner Books
@@ -2868,7 +2868,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 10617,The Bachman Books,Richard Bachman/Stephen King,4.11,0452277752,9780452277755,eng,704,62529,494,10/1/1996,Plume
 10620,Misery,Stephen King/María Mir,4.16,074323359X,9780743233590,spa,368,129,13,3/26/2002,Simon & Schuster Libros en Español
 10622,Carrie,Stephen King,3.96,0671039725,9780671039721,eng,253,2707,192,10/1/1999,Pocket Books
-10624,Four Past Midnight: Featuring "The Langoliers",Stephen King,3.93,0451185978,9780451185976,eng,761,308,20,5/1/1995,Signet
+10624,""Four Past Midnight: Featuring "The Langoliers""",Stephen King,3.93,0451185978,9780451185976,eng,761,308,20,5/1/1995,Signet
 10629,Christine,Stephen King/Marie Milpois,3.77,2253147699,9782253147695,fre,411,178403,2088,6/13/2001,LGF
 10631,Sam Walton: Made In America,Sam Walton/John Huey,4.15,0553562835,9780553562835,eng,346,14157,610,6/1/1993,Bantam
 10638,The Road to Reality: A Complete Guide to the Laws of the Universe,Roger Penrose,4.11,0679776311,9780679776314,eng,1099,6164,142,1/9/2007,Vintage
@@ -2999,7 +2999,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 11033,The Seville Communion,Arturo Pérez-Reverte/Sonia Soto,3.68,0156029812,9780156029810,eng,400,3912,209,6/7/2004,Mariner Books
 11036,Little Birds,Anaïs Nin,3.72,0156029049,9780156029049,eng,148,7888,366,2/2/2004,Mariner Books
 11037,The Diary of Anaïs Nin  Vol. 2: 1934-1939,Anaïs Nin/Gunther Stuhlmann,4.18,0156260263,9780156260268,eng,372,1775,47,3/25/1970,Mariner Books
-11038,Henry and June: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1931-1932,Anaïs Nin,3.90,015640057X,9780156400572,eng,304,8311,449,10/29/1990,Mariner Books
+11038,""Henry and June: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1931-1932"",Anaïs Nin,3.90,015640057X,9780156400572,eng,304,8311,449,10/29/1990,Mariner Books
 11043,House of Incest,Anaïs Nin/Val Telberg,3.80,0804001480,9780804001489,eng,72,1843,143,2/1/1991,Swallow Press
 11044,The Diary of Anaïs Nin  Vol. 3: 1939-1944,Anaïs Nin/Gunther Stuhlmann,4.18,0156260271,9780156260275,eng,348,1392,40,3/24/1971,Mariner Books
 11045,The Spectator Bird,Wallace Stegner,3.99,0140139400,9780140139402,eng,214,4808,550,11/1/1990,Penguin
@@ -3347,7 +3347,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 12216,Three Plays: Desire Under the Elms / Strange Interlude / Mourning Becomes Electra,Eugene O'Neill/Luann Walther,4.08,0679763961,9780679763963,eng,424,1596,36,10/31/1995,Vintage
 12220,A Streetcar Named Desire,Tennessee Williams,3.98,0822210894,9780822210894,eng,107,235224,2409,12/1/1952,Dramatists Play Service
 12222,A Streetcar Named Desire,Tennessee Williams/Arthur  Miller,3.98,0811216020,9780811216029,en-US,192,3458,337,9/17/2004,New Directions
-12224,Streetcar Suburbs: The Process of Growth in Boston  1870-1900,Sam Bass Warner, Jr./Sam B. Warner,3.58,0674842111,9780674842113,en-US,236,61,6,4/20/2004,Harvard University Press
+12224,Streetcar Suburbs: The Process of Growth in Boston  1870-1900,Sam Bass Warner,Jr./Sam B. Warner,3.58,0674842111,9780674842113,en-US,236,61,6,4/20/2004
 12225,A Streetcar Named Desire (SparkNotes Literature Guide),SparkNotes,3.29,1586634496,9781586634490,eng,96,0,0,7/15/2002,SparkNotes
 12226,CliffNotes on Williams' Glass Menagerie & Streetcar Named Desire (Cliffs Notes),James Lamar Roberts/Tennessee Williams/CliffsNotes,3.70,0822005336,9780822005339,en-GB,88,10,0,1/5/1965,Cliffs Notes
 12230,Pygmalion,George Bernard Shaw/Dan H. Laurence/Nicholas Grene,3.90,0141439505,9780141439501,eng,122,2085,179,1/30/2003,Penguin Books
@@ -4511,7 +4511,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 16268,Back to Barbary Lane: The Tales of the City Omnibus (Tales of the City  #4-6),Armistead Maupin,4.44,0060166495,9780060166496,eng,720,514,11,11/26/1991,Harper
 16271,The Intuitionist,Colson Whitehead,3.68,0385493002,9780385493000,eng,255,7473,903,1/4/1999,Anchor Books
 16276,John Henry Days,Colson Whitehead,3.65,0385498209,9780385498203,eng,400,1940,186,5/14/2002,Anchor
-16280,"Why Are All The Black Kids Sitting Together in the Cafeteria?": A Psychologist Explains the Development of Racial Identity,Beverly Daniel Tatum,4.21,0465083617,9780465083619,en-US,320,9845,703,1/17/2003,Basic Books
+16280,"""Why Are All The Black Kids Sitting Together in the Cafeteria?": A Psychologist Explains the Development of Racial Identity"",Beverly Daniel Tatum,4.21,0465083617,9780465083619,en-US,320,9845,703,1/17/2003,Basic Books
 16285,The Custard Kid (Black Cats),Terry Deary,4.40,0713659890,9780713659894,eng,62,5,0,10/31/2001,A & C Black (Childrens books)
 16286,The Magus,John Fowles,4.05,0316296198,9780316296199,eng,656,38247,1915,1/4/2001,Back Bay Books
 16291,The Magus of Freemasonry: The Mysterious Life of Elias Ashmole—Scientist  Alchemist  and Founder of the Royal Society,Tobias Churton,4.10,1594771227,9781594771224,eng,303,28,5,6/27/2006,Inner Traditions
@@ -4701,7 +4701,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 16900,Civil Disobedience and Other Essays,Henry David Thoreau,4.06,1420925229,9781420925227,eng,188,13736,189,1/1/2005,Digireads.com
 16902,Walden,Henry David Thoreau,3.79,0691096120,9780691096124,eng,352,128351,3652,4/18/2004,Princeton University Press
 16908,Interrupted Music: The Making of Tolkien's Mythology,Verlyn Flieger,4.21,0873388240,9780873388245,eng,192,131,8,3/31/2005,Kent State University Press
-16914,The Tolkien Fan's Medieval Reader,David E. Smith (Turgon of TheOneRing.net, one of the founding members of this Tolkien website)/Verlyn Flieger/Turgon (=David E. Smith),3.58,1593600119,9781593600112,eng,400,26,4,4/6/2004,Cold Spring Press
+16914,The Tolkien Fan's Medieval Reader,David E. Smith (Turgon of TheOneRing.net,one of the founding members of this Tolkien website)/Verlyn Flieger/Turgon (=David E. Smith),3.58,1593600119,9781593600112,eng,400,26,4,4/6/2004
 16918,Touchy and Feely (Sissy Sawyer  #1),Graham Masterton,3.37,072789160X,9780727891600,eng,208,86,12,2/1/2007,Severn House Publishers
 16919,Prey,Graham Masterton,3.83,0843946334,9780843946338,eng,352,812,51,11/1/1999,Leisure Books
 16920,Hidden World,Graham Masterton,3.47,0727859625,9780727859624,eng,182,58,5,3/1/2003,Severn House Publishers
@@ -5074,13 +5074,13 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 18337,No Heroes: A Memoir of Coming Home,Chris Offutt,3.87,0684865521,9780684865522,eng,272,193,34,4/2/2003,Simon  Schuster
 18338,The Castle Keeps,Andrew J. Offutt,3.57,0425021874,9780425021873,en-US,191,19,3,7/30/1972,Berkley
 18341,Conan: Sword of Skelos,Andrew J. Offutt,3.94,0765340216,9780765340214,eng,224,1427,5,2/18/2002,Tor Fantasy
-18348,Incest: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1932-1934,Anaïs Nin/Rupert Pole/Gunther Stuhlmann,3.99,0151443661,9780151443666,eng,418,908,54,10/1/1992,Houghton Mifflin Harcourt
-18349,Fire: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1934-1937,Anaïs Nin,4.13,0156003902,9780156003902,eng,448,585,31,7/22/1996,Mariner Books
+18348,""Incest: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1932-1934"",Anaïs Nin/Rupert Pole/Gunther Stuhlmann,3.99,0151443661,9780151443666,eng,418,908,54,10/1/1992,Houghton Mifflin Harcourt
+18349,""Fire: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1934-1937"",Anaïs Nin,4.13,0156003902,9780156003902,eng,448,585,31,7/22/1996,Mariner Books
 18350,In Favor of the Sensitive Man and Other Essays,Anaïs Nin,4.02,0156444453,9780156444453,eng,180,520,40,4/1/1976,Mariner Books
 18353,Anaïs Nin: A Biography,Deirdre Bair,3.99,0140255257,9780140255256,eng,672,632,37,7/1/1996,Penguin Books
 18361,Fire: From A Journal of Love - The Unexpurgated Diary of Anaïs Nin (1934-1937),Anaïs Nin/Gunther Stuhlmann,4.13,0151000883,9780151000883,eng,448,196,6,5/15/1995,Houghton Mifflin Harcourt
 18362,The Diary of Anaïs Nin  Vol. 6: 1955-1966,Anaïs Nin/Gunther Stuhlmann,4.13,0156260328,9780156260329,eng,432,319,11,11/3/1977,Mariner Books
-18365,Nearer the Moon: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1937-1939,Anaïs Nin/Gunther Stuhlmann,4.23,0151000891,9780151000890,eng,396,168,16,11/1/1996,Houghton Mifflin
+18365,""Nearer the Moon: From "A Journal of Love": The Unexpurgated Diary of Anaïs Nin  1937-1939"",Anaïs Nin/Gunther Stuhlmann,4.23,0151000891,9780151000890,eng,396,168,16,11/1/1996,Houghton Mifflin
 18366,The Early Diary of Anaïs Nin  Vol. 3: 1923-1927,Anaïs Nin,4.18,0156272504,9780156272506,eng,320,147,7,3/22/1985,Mariner Books
 18370,Henry and June: From the Unexpurgated Diary of Anaïs Nin,Anaïs Nin,3.90,0151400032,9780151400034,eng,274,151,19,12/31/1986,Houghton Mifflin Harcourt P
 18373,Flowers for Algernon,Daniel Keyes,4.12,0156030306,9780156030304,eng,311,337596,9949,5/1/2005,Harvest Books
@@ -5876,7 +5876,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 22123,The Coming Economic Collapse: How You Can Thrive When Oil Costs $200 a Barrel,Stephen Leeb/Glen C. Strathy,3.40,0446699004,9780446699006,en-US,211,34,3,2/1/2007,Business Plus
 22126,Betrayal of Trust: The Collapse of Global Public Health,Laurie Garrett/Steven M. Wolinsky,4.12,0786884401,9780786884407,eng,768,1126,50,8/15/2001,Hachette Books
 22127,Crash Proof: How to Profit from the Coming Economic Collapse,Peter D. Schiff/John Downes,3.78,0470043601,9780470043608,eng,272,1086,89,2/1/2007,John Wiley & Sons
-22128,Patriots (The Coming Collapse),James Wesley, Rawles,3.63,156384155X,9781563841552,eng,342,38,4,1/15/1999,Huntington House Publishers
+22128,Patriots (The Coming Collapse),James Wesley,Rawles,3.63,156384155X,9781563841552,eng,342,38,4,1/15/1999
 22133,The World  the Text  and the Critic,Edward W. Said/إدوارد سعيد,4.18,0674961870,9780674961876,eng,336,198,6,6/10/2006,Harvard University Press
 22135,Culture and Imperialism,Edward W. Said,4.15,0679750541,9780679750543,eng,380,4053,123,5/31/1994,Vintage
 22141,La economía Long Tail,Chris Anderson/Federico Villegas Silva Lezama,3.81,8493464260,9788493464264,spa,318,24,3,7/1/2007,Ediciones Urano
@@ -6005,7 +6005,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 22483,Social Origins of Dictatorship and Democracy: Lord and Peasant in the Making of the Modern World,Barrington Moore Jr./James C. Scott/Edward Friedman,3.98,0807050733,9780807050736,eng,592,823,37,9/1/1993,Beacon Press
 22485,Smithsonian Intimate Guide to Human Origins,Carl Zimmer,4.02,0061196673,9780061196676,eng,176,173,17,2/6/2007,Harper Perennial
 22486,Economic Origins of Dictatorship and Democracy,Daron Acemoğlu/James A. Robinson,3.97,0521855268,9780521855266,eng,416,158,10,10/1/2005,Cambridge University Press
-22489,African Origins of the Major "Western Religions",Yosef A.A. Ben-Jochannan,4.54,0933121296,9780933121294,eng,363,129,6,12/1/1991,Black Classic Press
+22489,""African Origins of the Major "Western Religions""",Yosef A.A. Ben-Jochannan,4.54,0933121296,9780933121294,eng,363,129,6,12/1/1991,Black Classic Press
 22493,The Origins of the Civil Rights Movements: Black Communities Organizing for Change,Aldon D. Morris,4.05,0029221307,9780029221303,en-US,368,151,13,9/15/1986,Free Press
 22495,The Origin of the Bible,F.F. Bruce/Philip W. Comfort/Carl F.H. Henry/J.I. Packer,3.86,0842383670,9780842383677,en-US,352,79,11,12/17/2003,Tyndale House Publishers
 22499,Country of Origin,Don  Lee,3.47,039332706X,9780393327069,eng,320,317,41,4/17/2005,W. W. Norton  Company
@@ -6150,7 +6150,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 23066,How to Travel with a Salmon and Other Essays,Umberto Eco/William Weaver,3.85,0151001367,9780151001361,eng,248,3532,153,12/1/1994,Houghton Mifflin
 23080,Le Nom de la rose,Umberto Eco/Jean-Noël Schifano,4.12,2253033138,9782253033134,fre,755,745,49,11/2/1983,Le Livre de Poche
 23114,Os libros arden mal,Manuel Rivas,3.36,849782461X,9788497824613,glg,741,36,2,6/24/2006,Edicións Xerais de Galicia  S.A.
-23158,The Age of Access: The New Culture of Hypercapitalism  Where All of Life Is a Paid-For Experience,Jeremy Rifkin/Ralph Fowler,3.82,1585420824,9781585420827,eng,320,228,12,3/5/2001,"Tarcher"
+23158,The Age of Access: The New Culture of Hypercapitalism  Where All of Life Is a Paid-For Experience,Jeremy Rifkin/Ralph Fowler,3.82,1585420824,9781585420827,eng,320,228,12,3/5/2001,"""Tarcher"""
 23183,The Book of Questions,Pablo Neruda/William O'Daly,4.04,1556591608,9781556591600,eng,96,2180,224,4/1/2001,Copper Canyon Press
 23186,Bugs for Lunch/Insectos para el almuerzo,Margery Facklam/Sylvia Long/Liliana Valenzuela,3.78,1570915067,9781570915062,spa,32,4,1,7/1/2002,Charlesbridge
 23194,My Story as told by Water: Confessions  Druidic Rants  Reflections  Bird-watchings  Fish-stalkings  Visions  Songs and Prayers Refracting Light  from Living Rivers  in the Age of the Industrial Dark,David James Duncan,4.10,1578050499,9781578050499,eng,304,679,53,7/17/2001,Sierra Club Books
@@ -6251,11 +6251,11 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 23549,The Journal of Scott Pendleton Collins: A World War 2 Soldier,Walter Dean Myers,3.96,0439050138,9780439050135,eng,140,1132,181,6/1/1999,Scholastic Inc.
 23552,The New Big Book of America,Todd Davis/Marc Frey,5.00,0762412631,9780762412631,eng,56,2,1,3/21/2002,Courage Books
 23558,Awake in the Dark: The Best of Roger Ebert,Roger Ebert/David Bordwell,4.20,0226182002,9780226182001,eng,512,416,30,9/15/2006,University of Chicago Press
-23563,Ebert's "Bigger" Little Movie Glossary,Roger Ebert/Ray Ebert,3.87,0836282892,9780836282894,en-US,228,82,9,12/3/2005,Andrews McMeel Publishing
+23563,""Ebert's "Bigger" Little Movie Glossary"",Roger Ebert/Ray Ebert,3.87,0836282892,9780836282894,en-US,228,82,9,12/3/2005,Andrews McMeel Publishing
 23573,The Perfect London Walk,Roger Ebert/Daniel Curley/Jack Lane,4.26,0836279298,9780836279290,eng,123,40,6,1/1/1986,Andrews McMeel Publishing
 23576,The Truth with Jokes,Al Franken,3.86,0452287677,9780452287679,eng,386,7469,201,10/1/2006,Plume Books
 23577,Lies & the Lying Liars Who Tell Them: A Fair & Balanced Look at the Right,Al Franken,3.81,0452285216,9780452285217,en-US,421,25235,723,7/27/2004,Plume Books
-23581,Still More George W. Bushisms: "Neither in French nor in English nor in Mexican",Jacob Weisberg/Al Franken,3.37,0743251008,9780743251006,eng,96,56,11,11/4/2003,Fireside
+23581,""Still More George W. Bushisms: "Neither in French nor in English nor in Mexican""",Jacob Weisberg/Al Franken,3.37,0743251008,9780743251006,eng,96,56,11,11/4/2003,Fireside
 23582,You're Good Enough  You're Smart Enough  & Doggone It  People Like You!,Al Franken,3.89,0553470949,9780553470949,en-US,0,18,0,10/1/1992,Random House Audio Publishing Group
 23584,I'm Good Enough  I'm Smart Enough  & Doggone It  People Like Me!,Al Franken/Melody Beattie/Stuart Smalley,3.82,0440504708,9780440504702,en-US,352,359,35,10/1/1992,Dell
 23588,J.R.R. Tolkien: Artist and Illustrator,Wayne G. Hammond/Christina Scull/J.R.R. Tolkien,4.14,0618083618,9780618083619,en-US,224,8140,32,10/18/2000,Mariner Books
@@ -6382,8 +6382,8 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 23989,Devil's Backbone,Terry C. Johnston,4.17,0312925743,9780312925741,eng,448,105,6,8/15/1991,St. Martin's Press
 24001,Soldados de Salamina,Javier Cercas,3.81,8483101610,9788483101612,spa,209,4382,235,9/1/2001,Tusquets
 24006,Rule #1: The Simple Strategy for Successful Investing in Only 15 Minutes a Week!,Phil Town,4.02,0307336131,9780307336132,eng,320,1373,90,3/21/2006,Crown Business
-24010,Laguna  I Love You: The Best of "Our Town",John Weld/Phil Interlandi,0.00,1564741575,9781564741578,eng,285,0,0,3/1/1996,Fithian Press
-24028,Dirty Italian: Everyday Slang from "What's Up?" to "F*%# Off!",Gabrielle Ann Euvino/Lindsay Mack,4.00,1569755663,9781569755662,eng,163,46,0,10/28/2006,Ulysses Press
+24010,""Laguna  I Love You: The Best of "Our Town""",John Weld/Phil Interlandi,0.00,1564741575,9781564741578,eng,285,0,0,3/1/1996,Fithian Press
+24028,""Dirty Italian: Everyday Slang from "What's Up?" to "F*%# Off!""",Gabrielle Ann Euvino/Lindsay Mack,4.00,1569755663,9781569755662,eng,163,46,0,10/28/2006,Ulysses Press
 24037,The Deep (Dive  #2),Gordon Korman,3.78,0439507235,9780439507233,eng,148,1436,55,7/1/2003,Scholastic
 24040,The Discovery (Dive  #1),Gordon Korman,3.72,0439507227,9780439507226,eng,141,1858,135,6/1/2003,Apple Paperbacks (Scholastic)
 24043,New York City's Best Dive Bars: Drinking and Diving in the Five Boroughs,Wendy  Mitchell/June Kim,3.75,0970312539,9780970312532,eng,160,16,2,7/1/2003,Gamble Guides
@@ -7137,7 +7137,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 27356,Black Meets White,Justine Korman Fontes/Geoff Waring,3.50,0763619337,9780763619336,en-US,24,50,11,7/12/2005,Candlewick Press
 27363,Back Bay (Peter Fallon  #1),William Martin,3.91,0446363162,9780446363167,eng,532,1614,173,7/1/1992,Grand Central Publishing
 27368,Letters from the Bay of Islands: The Story of Marianne Williams,Marianne Williams/Caroline Fitzgerald,3.72,0143019295,9780143019299,eng,270,24,2,1/1/2004,Penguin Books
-27385,Since "Silent Spring",Frank  Graham,3.78,0449231410,9780449231418,eng,0,1,0,6/12/1974,Fawcett
+27385,""Since "Silent Spring""",Frank  Graham,3.78,0449231410,9780449231418,eng,0,1,0,6/12/1974,Fawcett
 27397,A Civil Action,Jonathan Harr,3.97,0679772677,9780679772675,eng,512,13628,754,8/27/1996,Vintage
 27398,The Lost Painting,Jonathan Harr,3.74,0375759867,9780375759864,en-US,320,24619,765,11/7/2006,Random House Trade Paperbacks
 27399,The Lost Painting,Jonathan Harr,3.74,0375431535,9780375431531,eng,368,5,0,11/1/2005,Random House Large Print
@@ -7188,7 +7188,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 27540,The Emotional Intelligence Quick Book: Everything You Need to Know to Put Your EQ to Work,Travis Bradberry/Jean Greaves/Patrick Lencioni,3.52,0743273265,9780743273268,en-US,185,708,68,6/7/2005,Touchstone
 27541,Financial Intelligence: A Manager's Guide to Knowing What the Numbers Really Mean,Karen Berman/Joe Knight/John  Case,4.12,1591397642,9781591397649,eng,272,1870,92,1/1/2006,Harvard Business Review Press
 27543,Artificial Intelligence: A Modern Approach,Stuart Russell/Peter Norvig,4.17,0137903952,9780137903955,eng,1132,2689,79,12/20/2002,Prentice Hall
-27548,Most Likely to Succeed at Work: How Work Is Just Like High School -- Crib Notes for Getting Along and Getting Ahead Amidst Bullies  Teachers' Pets  Cheerleaders  and Other Members of the "Class",Wilma Davidson/Jack   Dougherty,3.45,0312317085,9780312317089,eng,224,11,1,6/5/2003,St. Martin's Press
+27548,""Most Likely to Succeed at Work: How Work Is Just Like High School -- Crib Notes for Getting Along and Getting Ahead Amidst Bullies  Teachers' Pets  Cheerleaders  and Other Members of the "Class""",Wilma Davidson/Jack   Dougherty,3.45,0312317085,9780312317089,eng,224,11,1,6/5/2003,St. Martin's Press
 27550,Walking with the Wind: A Memoir of the Movement,John             Lewis/Michael D'Orso,4.49,0156007088,9780156007085,en-US,496,2052,253,10/18/1999,Mariner Books
 27557,Jackie After Jack: Portrait of the Lady,Christopher Andersen/Christopher Andersen,3.95,0446607436,9780446607438,eng,592,373,27,3/1/1999,Grand Central Publishing
 27566,To Battle the Gods (Jalav  Amazon Warrior  #5),Sharon Green,4.07,0886771285,9780886771287,eng,446,87,1,5/6/1986,DAW
@@ -7338,7 +7338,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 28251,The High Lord (Black Magician Trilogy  #3),Trudi Canavan,4.15,1841493155,9781841493152,eng,644,39692,998,11/4/2004,Orbit
 28252,The Magicians' Guild (Black Magician Trilogy  #1),Trudi Canavan,3.95,0732270952,9780732270957,eng,517,194,16,10/24/2001,Voyager
 28254,Stone Age Economics,Marshall Sahlins,3.90,0202010996,9780202010991,eng,348,281,26,12/31/1974,Routledge
-28255,How "Natives" Think: About Captain Cook  For Example,Marshall Sahlins,3.64,0226733696,9780226733692,en-GB,328,64,3,10/1/1996,University of Chicago Press
+28255,""How "Natives" Think: About Captain Cook  For Example"",Marshall Sahlins,3.64,0226733696,9780226733692,en-GB,328,64,3,10/1/1996,University of Chicago Press
 28257,The Use and Abuse of Biology: An Anthropological Critique of Sociobiology,Marshall Sahlins,3.91,0472766007,9780472766000,eng,120,32,5,12/3/1976,University of Michigan Press
 28259,Historical Metaphors and Mythical Realities: Structure in the Early History of the Sandwich Islands Kingdom,Marshall Sahlins,3.74,0472027212,9780472027217,en-US,84,127,7,3/16/1981,University of Michigan Press
 28272,Legacy of the Darksword (The Darksword  #4),Margaret Weis/Tracy Hickman,3.47,055357812X,9780553578126,eng,400,138,4,6/1/1998,Spectra
@@ -8795,7 +8795,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 33896,Thirteen Moons,Charles Frazier,3.69,0375509321,9780375509322,eng,422,10534,1578,10/3/2006,Random House
 33904,Swimming Upstream: Collaborative Approaches to Watershed Management,Paul A. Sabatier/Will Focht/Mark Lubell/Zev Trachtenberg/Arnold Vedlitz/Marty Matlock,3.21,0262693194,9780262693196,eng,344,13,1,4/29/2005,The MIT Press
 33906,Story of a Girl,Sara Zarr,3.66,0316014532,9780316014533,eng,192,15106,1558,1/10/2007,Little  Brown Books for Young Readers
-33914,Approaches to Teaching Atwood's "the Handmaid's Tale" and Other Works (Approaches to Teaching World Literature),Sharon Rose Wilson/Thomas B. Friedman/Shannon Eileen Hengen,3.75,0873527364,9780873527361,eng,215,8,0,1/1/1996,Modern Language Association of America
+33914,""Approaches to Teaching Atwood's "the Handmaid's Tale" and Other Works (Approaches to Teaching World Literature)"",Sharon Rose Wilson/Thomas B. Friedman/Shannon Eileen Hengen,3.75,0873527364,9780873527361,eng,215,8,0,1/1/1996,Modern Language Association of America
 33917,The Namesake,Jhumpa Lahiri,3.99,0618485228,9780618485222,eng,291,213178,10160,9/1/2004,Mariner Books
 33922,Becoming a Goddess of Inner Poise: Spirituality for the Bridget Jones in All of Us,Donna Freitas,3.59,0787976288,9780787976286,eng,239,34,4,9/1/2004,Jossey-Bass
 33928,Full House: The Spread of Excellence from Plato to Darwin,Stephen Jay Gould,3.96,0609801406,9780609801406,eng,256,1630,84,9/16/1997,Three Rivers Press (CA)
@@ -8978,7 +8978,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 34871,The Complete Clive Barker's The Great And Secret Show,Chris Ryall/Gabriel Rodríguez/Clive Barker,4.23,1600100295,9781600100291,eng,136,17422,67,11/8/2006,IDW Publishing
 34873,The Great And Secret Show (Book of the Art #1),Clive Barker,4.05,000617695X,9780006176954,eng,698,275,17,4/26/1990,Fontana Books
 34881,Star Bright (Star Power  #8),Catherine Hapka,3.67,068987670X,9780689876707,eng,160,3,0,4/26/2005,Aladdin Paperbacks
-34889,Brown's Star Atlas: Showing All The Bright Stars With Full Instructions How To Find And Use Them For Navigational Purposes And Department Of Trade Examinations.,Brown, Son & Ferguson,0.00,0851742718,9780851742717,eng,49,0,0,5/1/1977,Brown Son & Ferguson Ltd.
+34889,Brown's Star Atlas: Showing All The Bright Stars With Full Instructions How To Find And Use Them For Navigational Purposes And Department Of Trade Examinations.,Brown,Son & Ferguson,0.00,0851742718,9780851742717,eng,49,0,0,5/1/1977
 34892,Bright Star's Promise,Karen A. Bale,2.77,0821746219,9780821746219,eng,444,13,3,7/1/1994,Zebra
 34895,Dragon Quest VIII: Journey of the Cursed King Official Strategy Guide,Dan Birlew,4.14,0744005833,9780744005837,eng,240,35,0,11/8/2005,BradyGames
 34897,The Dragon Reborn (The Wheel of Time  #3),Robert Jordan,4.25,0765305119,9780765305114,eng,624,183950,2671,9/14/2002,Tor Books
@@ -9704,7 +9704,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 38710,Super Fast Out of Control,Louis Sachar,3.75,0747566828,9780747566823,eng,128,0,0,5/2/2005,Bloomsbury Publishing PLC
 38717,The Anthology at the End of the Universe: Leading Science Fiction Authors on Douglas Adams' The Hitchhiker's Guide to the Galaxy,Glenn Yeffeth/Don DeBrandt/Cory Doctorow/Bruce Bethke/Adam Roberts/Lawrence Watt-Evans/Selina Rosen/Mark W. Tiedemann/Jacqueline Carey/Susan Sizemore/Vox Day/Stephen Baxter/A.M. Dellamonica/Marguerite Krause/John Shirley/Adam-Troy Castro/Amy Berner/Maria  Alexander/Marie-Catherine Caillava/Mike Byrne,3.86,1932100563,9781932100563,eng,240,129,10,3/11/2005,Smart Pop
 38723,The Feminine Mystique,Betty Friedan/Anna Quindlen,3.86,0393322572,9780393322576,eng,592,10108,650,9/17/2001,W. W. Norton  Company
-38724,Betty Friedan and the Making of "The Feminine Mystique": The American Left  the Cold War  and Modern Feminism,Daniel Horowitz,3.59,1558492763,9781558492769,eng,384,58,6,9/27/2000,University of Massachusetts Press
+38724,""Betty Friedan and the Making of "The Feminine Mystique": The American Left  the Cold War  and Modern Feminism"",Daniel Horowitz,3.59,1558492763,9781558492769,eng,384,58,6,9/27/2000,University of Massachusetts Press
 38735,James Herriot's Treasury for Children: Warm and Joyful Tales by the Author of All Creatures Great and Small,James Herriot/Ruth Brown/Peter Barrett,4.45,0312085125,9780312085124,eng,260,10128,245,9/1/1992,St. Martin's Press
 38736,James Herriot's Dog Stories,James Herriot/Victor G. Ambrus,4.40,0312364520,9780312364526,eng,464,5692,214,11/14/2006,St. Martin's Griffin
 38737,The Real James Herriot: A Memoir of My Father,Jim Wight,4.20,0345434900,9780345434906,en-US,371,4247,153,5/1/2001,Ballantine Books
@@ -9936,7 +9936,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 40016,Young Goodman Brown and Other Short Stories,Nathaniel Hawthorne,3.86,0486270602,9780486270609,eng,111,9101,126,2/5/1992,Dover Publications
 40020,A Patchwork Planet,Anne Tyler,3.79,080411918X,9780804119184,eng,320,11355,571,5/1/2001,Ballantine Books
 40021,A Slipping-Down Life,Anne Tyler,3.61,0345478959,9780345478955,eng,192,3335,142,5/4/2004,Ballantine Books
-40022,The Hound of the Baskervilles: Another Adventure of Sherlock Holmes  with "the Adventure of the Speckled Band",Arthur Conan Doyle/Francis O'Gorman,4.11,1551117223,9781551117225,eng,300,1356,32,1/10/2006,Broadview Press Inc
+40022,""The Hound of the Baskervilles: Another Adventure of Sherlock Holmes  with "the Adventure of the Speckled Band""",Arthur Conan Doyle/Francis O'Gorman,4.11,1551117223,9781551117225,eng,300,1356,32,1/10/2006,Broadview Press Inc
 40023,The Hound of the Baskervilles,Patrick Nobes/Arthur Conan Doyle/Jennifer Bassett/Tricia Hedge,3.91,019423035X,9780194230353,eng,105,136,11,9/12/2000,Oxford University Press  USA
 40024,The Alienist (Dr. Laszlo Kreizler  #1),Caleb Carr,4.06,0812976142,9780812976144,eng,498,126669,5578,10/24/2006,Random House
 40030,My Movie Business,John Irving,3.34,0552998680,9780552998680,eng,158,27,2,10/5/2000,Black Swan
@@ -9964,7 +9964,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 40139,Gone Bamboo,Anthony Bourdain,3.48,1841953679,9781841953670,eng,286,1066,74,5/1/2002,Canongate Books
 40143,The Family That Couldn't Sleep: A Medical Mystery,D.T. Max,3.91,081297252X,9780812972528,eng,299,237,48,9/11/2007,Random House Trade Paperbacks
 40145,Dear Genius: The Letters of Ursula Nordstrom,Ursula Nordstrom/Leonard S. Marcus/Maurice Sendak,4.40,0064462358,9780064462358,eng,406,533,112,3/31/2000,HarperCollins
-40146,"Dear Genius...": A Memoir of My Life with Truman Capote,Jack Dunphy,3.33,0070183171,9780070183179,eng,275,36,6,12/1/1987,McGraw-Hill Companies
+40146,"""Dear Genius...": A Memoir of My Life with Truman Capote"",Jack Dunphy,3.33,0070183171,9780070183179,eng,275,36,6,12/1/1987,McGraw-Hill Companies
 40152,Only Revolutions,Mark Z. Danielewski,3.21,0375421769,9780375421761,eng,360,4791,443,9/12/2006,Pantheon Books
 40153,The Whalestoe Letters,Mark Z. Danielewski,4.04,0375714413,9780375714412,eng,83,2112,96,10/10/2000,Pantheon
 40155,La Maison des feuilles,Mark Z. Danielewski/Christophe Claro,4.10,2207252000,9782207252000,fre,978,79,13,8/29/2002,Denoël
@@ -10867,7 +10867,7 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 44408,Becoming a Contagious Christian,Bill Hybels/Mark Mittelberg,3.92,0310210089,9780310210085,eng,224,1315,50,4/20/1996,Zondervan
 44433,Courageous Faith Through the Year,Bill Hybels/Keri Wyatt Kent,3.50,0830832947,9780830832941,eng,327,0,0,7/1/2004,IVP Books
 44436,Becoming a Contagious Christian Leader's Guide: Communicating Your Faith in a Style That Fits You,Mark Mittelberg/Lee Strobel,3.75,0310257867,9780310257868,eng,299,8,1,2/12/2007,Zondervan
-44439,"A" Is for Abductive : The Language of the Emerging Church,Leonard Sweet/Brian D. McLaren,3.14,0310243564,9780310243564,en-US,338,49,3,12/24/2002,Zondervan
+44439,"""A" Is for Abductive : The Language of the Emerging Church"",Leonard Sweet/Brian D. McLaren,3.14,0310243564,9780310243564,en-US,338,49,3,12/24/2002,Zondervan
 44442,The Church on the Other Side: Doing Ministry in the Postmodern Matrix,Brian D. McLaren,3.58,0310252199,9780310252191,eng,224,205,10,1/9/2003,Zondervan
 44446,Great Russian Short Stories,Paul Negri/Alexander Pushkin/Maxim Gorky/Aleksandr Ivanovich Kuprin/Leonid Andreyev/Nikolai Gogol/Ivan Turgenev/Fyodor Dostoyevsky/Leo Tolstoy/Nicholay Leskov/Vsevolod Garshin/Anton Chekhov/Theodor Sologub,4.02,048642992X,9780486429922,eng,208,162,20,7/29/2003,Dover Publications
 44450,The Portable Dorothy Parker,Dorothy Parker/Marion Meade/Seth,4.34,0143039539,9780143039532,eng,626,1447,199,3/28/2006,Penguin Books
@@ -11126,3 +11126,4 @@ bookID,title,authors,average_rating,isbn,isbn13,language_code,  num_pages,rating
 45634,The Ice-Shirt (Seven Dreams #1),William T. Vollmann,3.96,0140131965,9780140131963,eng,415,820,95,8/1/1993,Penguin Books
 45639,Poor People,William T. Vollmann,3.72,0060878827,9780060878825,eng,434,769,139,2/27/2007,Ecco
 45641,Las aventuras de Tom Sawyer,Mark Twain,3.91,8497646983,9788497646987,spa,272,113,12,5/28/2006,Edimat Libros
+45642,To Kill a Mockingbird,Harper Lee,0.00,0061120081,9780061120084,eng,281,4570755,11512,07/11/1960,J.B. Lippincott & Co.
