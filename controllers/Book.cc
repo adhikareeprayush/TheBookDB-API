@@ -1,343 +1,407 @@
 #include "Book.h"
 #include <fstream>
+#include <sstream>
+#include <vector>
 #include <jsoncpp/json/json.h>
+#include <algorithm>
 
+// CSV file path
 const std::string BookController::CSV_FILE = "books.csv";
 
-std::vector<Book> BookController::readBooksFromCSV(int limit, int offset) {
-    std::vector<Book> books;
+// Utility function to escape CSV strings
+std::string Book::escapeCSV(const std::string& str)
+{
+    std::string escapedStr = str;
+    if (str.find(',') != std::string::npos || str.find('"') != std::string::npos)
+    {
+        escapedStr = '"' + str + '"';
+    }
+    return escapedStr;
+}
+
+// Convert Book object to CSV format
+std::string Book::toCSV() const
+{
+    std::ostringstream oss;
+    oss << escapeCSV(bookID) << ','
+        << escapeCSV(title) << ','
+        << escapeCSV(authors) << ','
+        << escapeCSV(avgRating) << ','
+        << escapeCSV(isbn) << ','
+        << escapeCSV(isbn13) << ','
+        << escapeCSV(languageCode) << ','
+        << escapeCSV(numPages) << ','
+        << escapeCSV(ratingsCount) << ','
+        << escapeCSV(textReviewsCount) << ','
+        << escapeCSV(publicationDate) << ','
+        << escapeCSV(publisher);
+    return oss.str();
+}
+
+// Create Book object from CSV line
+Book Book::fromCSV(const std::string& line)
+{
+    std::istringstream iss(line);
+    std::string token;
+    std::vector<std::string> tokens;
+
+    while (std::getline(iss, token, ','))
+    {
+        // Remove leading and trailing spaces from each token
+        token.erase(0, token.find_first_not_of(' '));
+        token.erase(token.find_last_not_of(' ') + 1);
+        tokens.push_back(token);
+    }
+
+    Book book;
+    if (tokens.size() >= 12)
+    {
+        book.bookID = tokens[0];
+        book.title = tokens[1];
+        book.authors = tokens[2];
+        book.avgRating = tokens[3];
+        book.isbn = tokens[4];
+        book.isbn13 = tokens[5];
+        book.languageCode = tokens[6];
+        book.numPages = tokens[7];
+        book.ratingsCount = tokens[8];
+        book.textReviewsCount = tokens[9];
+        book.publicationDate = tokens[10];
+        book.publisher = tokens[11];
+    }
+
+    return book;
+}
+
+// Read books from CSV file
+std::vector<Book> BookController::readBooksFromCSV(int limit, int offset)
+{
     std::ifstream file(CSV_FILE);
+    std::vector<Book> books;
     std::string line;
-    
-    // Skip header
+    int count = 0;
+
+    // Skip the header line
     std::getline(file, line);
 
-    int count = 0;
-    while (std::getline(file, line) && (limit == -1 || books.size() < limit)) {
-        if (count >= offset) {
+    while (std::getline(file, line))
+    {
+        if (count >= offset && (limit == -1 || count < offset + limit))
+        {
             books.push_back(Book::fromCSV(line));
         }
         count++;
     }
+
     return books;
 }
 
-void BookController::writeBooksToCSV(const std::vector<Book>& books) {
-    std::ofstream file(CSV_FILE);
-    file << "title,authors,description,category,publisher,price,publish_date_month,publish_date_day,publish_date_year\n";
-    for (const auto& book : books) {
+// Write books to CSV file
+void BookController::writeBooksToCSV(const std::vector<Book>& books)
+{
+    std::ofstream file(CSV_FILE, std::ios::app);
+
+    for (const auto& book : books)
+    {
         file << book.toCSV() << "\n";
     }
 }
 
-void BookController::addBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+// Find book by title
+Book BookController::findBookByTitle(const std::string& title)
 {
-    auto json = req->getJsonObject();
-    if (!json)
-    {
-        auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k400BadRequest);
-        resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-        resp->setBody("Invalid JSON in request body");
-        callback(resp);
-        return;
-    }
-
-    Book newBook;
-    newBook.title = (*json)["title"].asString();
-    newBook.authors = (*json)["authors"].asString();
-    newBook.description = (*json)["description"].asString();
-    newBook.category = (*json)["category"].asString();
-    newBook.publisher = (*json)["publisher"].asString();
-    newBook.price = (*json)["price"].asString();
-    newBook.publish_date_month = (*json)["publish_date_month"].asString();
-    newBook.publish_date_day = (*json)["publish_date_day"].asString();
-    newBook.publish_date_year = (*json)["publish_date_year"].asString();
-
-    // Read existing books
-    auto books = readBooksFromCSV();
-
-    // Add new book
-    books.push_back(newBook);
-
-    // Write updated books list to CSV
-    writeBooksToCSV(books);
-
-    // Prepare response
-    Json::Value responseJson;
-    responseJson["title"] = newBook.title;
-    responseJson["authors"] = newBook.authors;
-    responseJson["description"] = newBook.description;
-    responseJson["category"] = newBook.category;
-    responseJson["publisher"] = newBook.publisher;
-    responseJson["price"] = newBook.price;
-    responseJson["publish_date_month"] = newBook.publish_date_month;
-    responseJson["publish_date_day"] = newBook.publish_date_day;
-    responseJson["publish_date_year"] = newBook.publish_date_year;
-
-    auto resp = drogon::HttpResponse::newHttpJsonResponse(responseJson);
-    resp->setStatusCode(drogon::k201Created);
-    callback(resp);
-}
-
-void BookController::deleteBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback, std::string title)
-{
-    // Read existing books
-    auto books = readBooksFromCSV();
-
-    // Find the book to delete
-    auto it = std::find_if(books.begin(), books.end(), [&title](const Book& book) {
-        return book.title == title;
-    });
-
-    if (it == books.end()) {
-        // Book not found
-        auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k404NotFound);
-        resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-        resp->setBody("Book not found");
-        callback(resp);
-        return;
-    }
-
-    // Remove the book
-    books.erase(it);
-
-    // Write updated books list to CSV
-    writeBooksToCSV(books);
-
-    // Prepare response
-    auto resp = drogon::HttpResponse::newHttpResponse();
-    resp->setStatusCode(drogon::k200OK);
-    resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-    resp->setBody("Book deleted successfully");
-    callback(resp);
-}
-
-void BookController::updateBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback, std::string title)
-{
-    auto json = req->getJsonObject();
-    if (!json)
-    {
-        auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k400BadRequest);
-        resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-        resp->setBody("Invalid JSON in request body");
-        callback(resp);
-        return;
-    }
-
-    // Read existing books
-    auto books = readBooksFromCSV();
-
-    // Find the book to update
-    auto it = std::find_if(books.begin(), books.end(), [&title](const Book& book) {
-        return book.title == title;
-    });
-
-    bool isNewBook = (it == books.end());
-    Book& book = isNewBook ? books.emplace_back() : *it;
-
-    // Update or create the book
-    book.title = title;  // Use the title from the URL
-    book.authors = json->get("authors", book.authors).asString();
-    book.description = json->get("description", book.description).asString();
-    book.category = json->get("category", book.category).asString();
-    book.publisher = json->get("publisher", book.publisher).asString();
-    book.price = json->get("price", book.price).asString();
-    book.publish_date_month = json->get("publish_date_month", book.publish_date_month).asString();
-    book.publish_date_day = json->get("publish_date_day", book.publish_date_day).asString();
-    book.publish_date_year = json->get("publish_date_year", book.publish_date_year).asString();
-
-    // Write updated books list to CSV
-    writeBooksToCSV(books);
-
-    // Prepare response
-    Json::Value responseJson;
-    responseJson["title"] = book.title;
-    responseJson["authors"] = book.authors;
-    responseJson["description"] = book.description;
-    responseJson["category"] = book.category;
-    responseJson["publisher"] = book.publisher;
-    responseJson["price"] = book.price;
-    responseJson["publish_date_month"] = book.publish_date_month;
-    responseJson["publish_date_day"] = book.publish_date_day;
-    responseJson["publish_date_year"] = book.publish_date_year;
-
-    auto resp = drogon::HttpResponse::newHttpJsonResponse(responseJson);
-    resp->setStatusCode(isNewBook ? drogon::k201Created : drogon::k200OK);
-    callback(resp);
-}
-
-
-void BookController::patchBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback, std::string title)
-{
-    auto json = req->getJsonObject();
-    if (!json)
-    {
-        auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k400BadRequest);
-        resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-        resp->setBody("Invalid JSON in request body");
-        callback(resp);
-        return;
-    }
-
-    // Read existing books
-    auto books = readBooksFromCSV();
-
-    // Find the book to update
-    auto it = std::find_if(books.begin(), books.end(), [&title](const Book& book) {
-        return book.title == title;
-    });
-
-    if (it == books.end()) {
-        // Book not found
-        auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k404NotFound);
-        resp->setContentTypeCode(drogon::CT_TEXT_PLAIN);
-        resp->setBody("Book not found");
-        callback(resp);
-        return;
-    }
-
-    // Update only the fields provided in the JSON
-    if (json->isMember("authors")) it->authors = (*json)["authors"].asString();
-    if (json->isMember("description")) it->description = (*json)["description"].asString();
-    if (json->isMember("category")) it->category = (*json)["category"].asString();
-    if (json->isMember("publisher")) it->publisher = (*json)["publisher"].asString();
-    if (json->isMember("price")) it->price = (*json)["price"].asString();
-    if (json->isMember("publish_date_month")) it->publish_date_month = (*json)["publish_date_month"].asString();
-    if (json->isMember("publish_date_day")) it->publish_date_day = (*json)["publish_date_day"].asString();
-    if (json->isMember("publish_date_year")) it->publish_date_year = (*json)["publish_date_year"].asString();
-
-    // Write updated books list to CSV
-    writeBooksToCSV(books);
-
-    // Prepare response
-    Json::Value responseJson;
-    responseJson["title"] = it->title;
-    responseJson["authors"] = it->authors;
-    responseJson["description"] = it->description;
-    responseJson["category"] = it->category;
-    responseJson["publisher"] = it->publisher;
-    responseJson["price"] = it->price;
-    responseJson["publish_date_month"] = it->publish_date_month;
-    responseJson["publish_date_day"] = it->publish_date_day;
-    responseJson["publish_date_year"] = it->publish_date_year;
-
-    auto resp = drogon::HttpResponse::newHttpJsonResponse(responseJson);
-    resp->setStatusCode(drogon::k200OK);
-    callback(resp);
-}
-
-Book BookController::findBookByTitle(const std::string& title) {
     std::ifstream file(CSV_FILE);
     std::string line;
-    
-    // Skip header
+
+    // Skip the header line
     std::getline(file, line);
 
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         Book book = Book::fromCSV(line);
-        if (book.title == title) {
+        if (book.title == title)
+        {
             return book;
         }
     }
+
     throw std::runtime_error("Book not found");
 }
 
-void BookController::getBooks(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback) {
-    // Retrieve parameters from the request
-    std::string title = req->getParameter("title");
-    std::string authors = req->getParameter("authors");
-    std::string category = req->getParameter("category");
-    std::string publisher = req->getParameter("publisher");
-    std::string price = req->getParameter("price");
-    std::string publish_date_month = req->getParameter("publish_date_month");
-    std::string publish_date_day = req->getParameter("publish_date_day");
-    std::string publish_date_year = req->getParameter("publish_date_year");
-
-    // Parse pagination parameters
-    std::string pageStr = req->getParameter("page");
-    std::string pageSizeStr = req->getParameter("pageSize");
-
-    int page = pageStr.empty() ? 1 : std::stoi(pageStr);
-    int pageSize = pageSizeStr.empty() ? 20 : std::stoi(pageSizeStr);
-    int offset = (page - 1) * pageSize;
-
-    // Query books based on parameters
-    std::vector<Book> filteredBooks;
-    std::vector<Book> allBooks = readBooksFromCSV(-1, 0); // Read all books
-
-    //if no filters are provided, return all books
-    if (title.empty() && authors.empty() && category.empty() && publisher.empty() && price.empty() && publish_date_month.empty() && publish_date_day.empty() && publish_date_year.empty()) {
-        for (const auto& book : allBooks) {
-            filteredBooks.push_back(book);
-        }
+// Utility function to parse date strings
+std::tm parseDate(const std::string& date)
+{
+    std::tm tm = {};
+    std::istringstream ss(date);
+    ss >> std::get_time(&tm, "%m/%d/%Y");
+    if (ss.fail())
+    {
+        throw std::runtime_error("Failed to parse date: " + date);
     }
-
-
-    for (const auto& book : allBooks) {
-        // Apply filters
-        if ((!title.empty() && book.title == title) ||
-            (!authors.empty() && book.authors.find(authors) != std::string::npos) ||
-            (!category.empty() && book.category == category) ||
-            (!publisher.empty() && book.publisher == publisher) ||
-            (!price.empty() && book.price == price) ||
-            (!publish_date_month.empty() && book.publish_date_month == publish_date_month) ||
-            (!publish_date_day.empty() && book.publish_date_day == publish_date_day) ||
-            (!publish_date_year.empty() && book.publish_date_year == publish_date_year)) {
-            filteredBooks.push_back(book);
-        }
-    }
-
-    // Apply pagination
-    std::vector<Book> pagedBooks;
-    for (size_t i = offset; i < filteredBooks.size() && pagedBooks.size() < pageSize; ++i) {
-        pagedBooks.push_back(filteredBooks[i]);
-    }
-
-    // Convert to JSON response
-    Json::Value ret(Json::arrayValue);
-    for (const auto& book : pagedBooks) {
-        Json::Value bookJson;
-        bookJson["title"] = book.title;
-        bookJson["authors"] = book.authors;
-        bookJson["description"] = book.description;
-        bookJson["category"] = book.category;
-        bookJson["publisher"] = book.publisher;
-        bookJson["price"] = book.price;
-        bookJson["publish_date_month"] = book.publish_date_month;
-        bookJson["publish_date_day"] = book.publish_date_day;
-        bookJson["publish_date_year"] = book.publish_date_year;
-
-        ret.append(bookJson);
-    }
-
-    // Create HTTP response
-    auto resp = drogon::HttpResponse::newHttpJsonResponse(ret);
-    callback(resp);
+    return tm;
 }
 
-void BookController::getBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback, std::string title) {
-    try {
-        Book book = findBookByTitle(title);
-        Json::Value ret;
-        ret["title"] = book.title;
-        ret["authors"] = book.authors;
-        ret["description"] = book.description;
-        ret["category"] = book.category;
-        ret["publisher"] = book.publisher;
-        ret["price"] = book.price;
-        ret["publish_date_month"] = book.publish_date_month;
-        ret["publish_date_day"] = book.publish_date_day;
-        ret["publish_date_year"] = book.publish_date_year;
-        auto resp = drogon::HttpResponse::newHttpJsonResponse(ret);
+// Check if a date is in the specified range
+bool BookController::dateInRange(const std::string& date, const std::string& startDate, const std::string& endDate)
+{
+    try
+    {
+        std::tm dateTm = parseDate(date);
+        std::tm startTm = parseDate(startDate);
+        std::tm endTm = parseDate(endDate);
+
+        std::time_t dateTime = std::mktime(&dateTm);
+        std::time_t startDateTime = std::mktime(&startTm);
+        std::time_t endDateTime = std::mktime(&endTm);
+
+        return dateTime >= startDateTime && dateTime <= endDateTime;
+    }
+    catch (const std::runtime_error& e)
+    {
+        // Log or handle parsing errors
+        std::cerr << e.what() << std::endl;
+        return false;  // or true depending on how you want to handle parsing failures
+    }
+}
+
+// Handler for the getBooks endpoint
+void BookController::getBooks(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    auto queryParams = req->getParameters();
+    int limit = -1;
+    int offset = 0;
+
+    if (queryParams.find("limit") != queryParams.end())
+    {
+        limit = std::stoi(queryParams.at("limit"));
+    }
+
+    if (queryParams.find("offset") != queryParams.end())
+    {
+        offset = std::stoi(queryParams.at("offset"));
+    }
+
+    std::string bookID;
+    std::string title;
+    std::string authors;
+    std::string avgRating;
+    std::string numPages;
+    std::string publicationDate;
+    std::string publisher;
+    std::string isbn;
+    std::string isbn13;
+    std::string languageCode;
+
+
+    if (queryParams.find("bookID") != queryParams.end())
+    {
+        bookID = queryParams.at("bookID");
+    }
+    if (queryParams.find("authors") != queryParams.end())
+    {
+        authors = queryParams.at("authors");
+    }
+    if (queryParams.find("title") != queryParams.end())
+    {
+        title = queryParams.at("title");
+    }
+    if (queryParams.find("publisher") != queryParams.end())
+    {
+        publisher = queryParams.at("publisher");
+    }
+    if (queryParams.find("publicationDate") != queryParams.end())
+    {
+        publicationDate = queryParams.at("publicationDate");
+    }
+    if (queryParams.find("numPages") != queryParams.end())
+    {
+        numPages = queryParams.at("numPages");
+    }
+    if (queryParams.find("avgRating") != queryParams.end())
+    {
+        avgRating = queryParams.at("avgRating");
+    }
+    if (queryParams.find("isbn") != queryParams.end())
+    {
+        isbn = queryParams.at("isbn");
+    }
+    if (queryParams.find("isbn13") != queryParams.end())
+    {
+        isbn13 = queryParams.at("isbn13");
+    }
+    if (queryParams.find("languageCode") != queryParams.end())
+    {
+        languageCode = queryParams.at("languageCode");
+    }
+
+
+    try
+    {
+        auto books = readBooksFromCSV(limit, offset);
+        Json::Value jsonBooks(Json::arrayValue);
+
+        for (const auto& book : books)
+        {
+            bool matches = true;
+
+            if (!bookID.empty() && book.bookID != bookID)
+            {
+                matches = false;
+            }
+            if (!title.empty() && book.title != title)
+            {
+                matches = false;
+            }
+            if (!authors.empty() && book.authors != authors)
+            {
+                matches = false;
+            }
+            if (!avgRating.empty() && book.avgRating != avgRating)
+            {
+                matches = false;
+            }
+            if (!isbn.empty() && book.isbn != isbn)
+            {
+                matches = false;
+            }
+            if (!isbn13.empty() && book.isbn13 != isbn13)
+            {
+                matches = false;
+            }
+            if (!languageCode.empty() && book.languageCode != languageCode)
+            {
+                matches = false;
+            }
+            if (!numPages.empty() && book.numPages != numPages)
+            {
+                matches = false;
+            }
+            if (!publisher.empty() && book.publisher != publisher)
+            {
+                matches = false;
+            }
+            if (!publicationDate.empty() && book.publicationDate != publicationDate)
+            {
+                matches = false;
+            }
+
+
+            if (matches)
+            {
+                Json::Value jsonBook;
+                jsonBook["bookID"] = book.bookID;
+                jsonBook["title"] = book.title;
+                jsonBook["authors"] = book.authors;
+                jsonBook["avgRating"] = book.avgRating;
+                jsonBook["isbn"] = book.isbn;
+                jsonBook["isbn13"] = book.isbn13;
+                jsonBook["languageCode"] = book.languageCode;
+                jsonBook["numPages"] = book.numPages;
+                jsonBook["ratingsCount"] = book.ratingsCount;
+                jsonBook["textReviewsCount"] = book.textReviewsCount;
+                jsonBook["publicationDate"] = book.publicationDate;
+                jsonBook["publisher"] = book.publisher;
+                jsonBooks.append(jsonBook);
+            }
+        }
+
+        auto resp = drogon::HttpResponse::newHttpJsonResponse(jsonBooks);
         callback(resp);
-    } catch (const std::runtime_error&) {
+    }
+    catch (const std::exception& e)
+    {
         auto resp = drogon::HttpResponse::newHttpResponse();
-        resp->setStatusCode(drogon::k404NotFound);
+        resp->setStatusCode(drogon::k500InternalServerError);
+        resp->setBody(e.what());
+        callback(resp);
+    }
+}
+
+// Handler for the filterBooks endpoint
+void BookController::filterBooks(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    auto queryParams = req->getParameters();
+    std::string startDate;
+    std::string endDate;
+    std::string sortOrder = "ASC"; // Default to ascending
+
+    if (queryParams.find("startDate") != queryParams.end())
+    {
+        startDate = queryParams.at("startDate");
+    }
+
+    if (queryParams.find("endDate") != queryParams.end())
+    {
+        endDate = queryParams.at("endDate");
+    }
+
+    if (queryParams.find("sortOrder") != queryParams.end())
+    {
+        sortOrder = queryParams.at("sortOrder");
+    }
+
+    try
+    {
+        auto books = readBooksFromCSV(); // Read all books
+        Json::Value jsonBooks(Json::arrayValue);
+
+        for (const auto& book : books)
+        {
+            bool matches = true;
+
+            if (!startDate.empty() && !endDate.empty() && !dateInRange(book.publicationDate, startDate, endDate))
+            {
+                matches = false;
+            }
+
+            if (matches)
+            {
+                Json::Value jsonBook;
+                jsonBook["bookID"] = book.bookID;
+                jsonBook["title"] = book.title;
+                jsonBook["authors"] = book.authors;
+                jsonBook["avgRating"] = book.avgRating;
+                jsonBook["isbn"] = book.isbn;
+                jsonBook["isbn13"] = book.isbn13;
+                jsonBook["languageCode"] = book.languageCode;
+                jsonBook["numPages"] = book.numPages;
+                jsonBook["ratingsCount"] = book.ratingsCount;
+                jsonBook["textReviewsCount"] = book.textReviewsCount;
+                jsonBook["publicationDate"] = book.publicationDate;
+                jsonBook["publisher"] = book.publisher;
+                jsonBooks.append(jsonBook);
+            }
+        }
+
+        // Sort books by publication date
+        std::vector<Json::Value> sortedBooks(jsonBooks.begin(), jsonBooks.end());
+        std::sort(sortedBooks.begin(), sortedBooks.end(), [sortOrder](const Json::Value& a, const Json::Value& b) {
+            std::tm aTm = {};
+            std::tm bTm = {};
+            std::istringstream ssA(a["publicationDate"].asString());
+            std::istringstream ssB(b["publicationDate"].asString());
+            ssA >> std::get_time(&aTm, "%m/%d/%Y");
+            ssB >> std::get_time(&bTm, "%m/%d/%Y");
+            std::time_t aTime = std::mktime(&aTm);
+            std::time_t bTime = std::mktime(&bTm);
+
+            return (sortOrder == "ASC") ? (aTime < bTime) : (aTime > bTime);
+        });
+
+        Json::Value jsonSortedBooks(Json::arrayValue);
+        for (const auto& book : sortedBooks)
+        {
+            jsonSortedBooks.append(book);
+        }
+
+        auto resp = drogon::HttpResponse::newHttpJsonResponse(jsonSortedBooks);
+        callback(resp);
+    }
+    catch (const std::exception& e)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k500InternalServerError);
+        resp->setBody(e.what());
         callback(resp);
     }
 }
