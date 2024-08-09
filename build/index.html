@@ -3,9 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>HAHAH</h1>
+    <nav>
+        <div class="logo">
+            <i class="bi bi-book"></i>
+            <span>TheBookDB</span>
+        </div>
+        <a href="https://github.com/adhikareeprayush/API/" class="contribute">
+            <i class="bi bi-github"></i>
+        </a>
+    </nav>
+    <div class="main">
+        <div class="about">
+            <div class="header">
+                <h1>Introduction</h1>
+                <p>
+                    TheBookDB is a RESTful API that provides information about various books. It provides information about the title, authors, average rating, number of pages, publication date, ISBN, ISBN13, language code, publisher, ratings count, and text reviews count of the books. The API also allows users to add, update, and delete books.
+                </p>
+            </div>
+        </div>
+        <div class="manual">
+            <div class="get-req">
+                <div class="header">
+                    <h1>Get Request</h1>
+                </div>
+                <div class="call">
+                    <div class="purpose">List all the Books.</div>
+                    <div class="code">
+                        /api/books
+                    </div>
+                </div>
+                <div class="call">
+                    <div class="purpose">List a specific Book.</div>
+                    <div class="code">
+                        /api/books?bookID={bookID}
+                    </div>
+                    <div class="note">
+                        <p>You can use title, authors, avgRating, numPages, publicationDate, isbn, isbn13, languageCode along with bookID. </p>
+                    </div>
+                </div>
+                <div class="call">
+                    <div class="purpose">List and sort books according to publicationDate.</div>
+                    <div class="code">
+                        /api/books?startDate={startDate}&endDate={endDate}&sortOrder={sortOrder}
+                    </div>
+                    <div class="note">
+                        <p>sortOrder can be either ASC or DSC.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="post-req">
+                <div class="header">
+                    <h1>Post Request</h1>
+                </div>
+                <div class="call">
+                    <div class="purpose">Add a new Book.</div>
+                    <div class="code">
+                        /api/books
+                    </div>
+                    <div class="note">
+                        <p>Use the following JSON format to add a new book.</p>
+                        <pre>
+                            {
+                                "authors": "Lynsay Sands",
+                                "avgRating": "3.91",
+                                "bookID": "38568",
+                                "isbn": "0060773758",
+                                "isbn13": "9780060773755",
+                                "languageCode": "eng",
+                                "numPages": "360",
+                                "publicationDate": "3/31/2020",
+                                "publisher": "Avon",
+                                "ratingsCount": "35275",
+                                "textReviewsCount": "1370",
+                                "title": "A Quick Bite (Argeneau #1)"
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="put-req">
+                <div class="header">
+                    <h1>Put Request</h1>
+                </div>
+                <div class="call">
+                    <div class="purpose">Update a Book.</div>
+                    <div class="code">
+                        /api/books/{bookID}
+                    </div>
+                    <div class="note">
+                        <p>Use the following JSON format to update a book.</p>
+                        <pre>
+                            {
+                                "authors": "Lynsay Sands",
+                                "avgRating": "3.91",
+                                "bookID": "38568",
+                                "isbn": "0060773758",
+                                "isbn13": "9780060773755",
+                                "languageCode": "eng",
+                                "numPages": "360",
+                                "publicationDate": "3/31/2020",
+                                "publisher": "Avon",
+                                "ratingsCount": "35275",
+                                "textReviewsCount": "1370",
+                                "title": "A Quick Bite (Argeneau #1)"
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="patch-req">
+                <div class="header">
+                    <h1>Patch Request</h1>
+                </div>
+                <div class="call">
+                    <div class="purpose">Update a specific field of a Book.</div>
+                    <div class="code">
+                        /api/books/{bookID}
+                    </div>
+                    <div class="note">
+                        <p>Use the following JSON format to update a specific field of a book.</p>
+                        <pre>
+                            {
+                                "authors": "Lynsay Sands",
+                                "avgRating": "3.91",
+                                "bookID": "38568",
+                                "isbn": "0060773758",
+                                "isbn13": "9780060773755",
+                                "languageCode": "eng",
+                                "numPages": "360",
+                                "publicationDate": "3/31/2020",
+                                "publisher": "Avon",
+                                "ratingsCount": "35275",
+                                "textReviewsCount": "1370",
+                                "title": "A Quick Bite (Argeneau #1)"
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="delete-req">
+                <div class="header">
+                    <h1>Delete Request</h1>
+                </div>
+                <div class="call">
+                    <div class="purpose">Delete a Book.</div>
+                    <div class="code">
+                        /api/books/{bookID}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>@2024 TheBookDB</p>
+        <div class="contributors">
+            <a href="https://github.com/pratyoos" class="member">Pratyoos Panta</a>
+            <a href="https://github.com/rtjsh" class="member">Rajesh Thapa</a>
+            <a href="https://github.com/prachitvuzel" class="member">Prachit Bhujel</a>
+            <a href="https://github.com/adhikareeprayush/" class="member">Prayush Adhikari</a>
+            <a href="#" class="member">Sandesh Pantha</a>
+
+        </div>
+    </footer>
 </body>
 </html>

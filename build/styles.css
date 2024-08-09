@@ -1,0 +1,149 @@
+@import url('https://fonts.cdnfonts.com/css/konkretika-black-wip');
+
+:root{
+    --dark:#5e5d5f;
+    --strong:#a87be3;
+    --light:#fef7ff;
+    --darkest:#7b7385;
+}
+
+*{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+html,body{
+    width: 100%;
+    background-color: var(--light);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding:20px 60px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    font-family: 'Konkretika Black WIP', sans-serif;
+    font-size:32px; 
+}
+
+.contribute i{
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 60px;     
+}
+
+.contributors{
+    display: flex;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    font-family: 'Konkretika Black WIP', sans-serif;
+    font-size:32px; 
+}
+
+.contribute i{
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+
+footer{
+    width: 100%;
+    display: none;
+    padding: 20px 60px;     
+}
+
+.contributors{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    padding:60px 60px;
+    justify-content: center;
+    gap:30px;
+    align-items: center;
+}
+
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    text-align: center;
+    align-self: center;
+}
+
+.header h1{
+    margin-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.header p{
+    font-size: 18px;
+    font-weight: 400;
+    width: 1000px;
+    color:var(--dark);
+
+}
+
+.get-req{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:8px;
+}
+
+.code{
+    background-color: var(--strong);
+    padding:5px 7px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;    
+    border-radius: 5px;
+}
+
+.call{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.purpose{
+    font-size: 20px;
+}
+
+.note{
+    font-size: 16px;
+    color: var(--darkest);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

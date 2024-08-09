@@ -99,12 +99,23 @@ std::vector<Book> BookController::readBooksFromCSV(int limit, int offset)
 // Write books to CSV file
 void BookController::writeBooksToCSV(const std::vector<Book>& books)
 {
-    std::ofstream file(CSV_FILE, std::ios::app);
+    std::ofstream file(CSV_FILE);
 
+    if (!file.is_open())
+    {
+        throw std::runtime_error("Unable to open CSV file for writing");
+    }
+
+    // Write header
+    file << "bookID,title,authors,avgRating,isbn,isbn13,languageCode,numPages,ratingsCount,textReviewsCount,publicationDate,publisher\n";
+
+    // Write book data
     for (const auto& book : books)
     {
         file << book.toCSV() << "\n";
     }
+
+    file.close();
 }
 
 // Find book by title
@@ -401,6 +412,299 @@ void BookController::filterBooks(const drogon::HttpRequestPtr& req, std::functio
     {
         auto resp = drogon::HttpResponse::newHttpResponse();
         resp->setStatusCode(drogon::k500InternalServerError);
+        resp->setBody(e.what());
+        callback(resp);
+    }
+}
+
+// Handler for the addBook endpoint
+void BookController::addBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    auto json = req->getJsonObject();
+    if (!json)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Invalid JSON format");
+        callback(resp);
+        return;
+    }
+
+    try
+    {
+        // Read existing books
+        auto books = readBooksFromCSV();
+
+        // Determine the new bookID
+        int newID = 1;
+        if (!books.empty())
+        {
+            auto lastBook = std::max_element(books.begin(), books.end(), [](const Book& a, const Book& b) {
+                return std::stoi(a.bookID) < std::stoi(b.bookID);
+            });
+            newID = std::stoi(lastBook->bookID) + 1;
+        }
+        std::string newBookID = std::to_string(newID);
+
+        // Create new book with the unique bookID
+        Book book;
+        book.bookID = newBookID;
+        book.title = json->get("title", "").asString();
+        book.authors = json->get("authors", "").asString();
+        book.avgRating = json->get("avgRating", "").asString();
+        book.isbn = json->get("isbn", "").asString();
+        book.isbn13 = json->get("isbn13", "").asString();
+        book.languageCode = json->get("languageCode", "").asString();
+        book.numPages = json->get("numPages", "").asString();
+        book.ratingsCount = json->get("ratingsCount", "").asString();
+        book.textReviewsCount = json->get("textReviewsCount", "").asString();
+        book.publicationDate = json->get("publicationDate", "").asString();
+        book.publisher = json->get("publisher", "").asString();
+
+        // Add the new book to the end of the list
+        books.push_back(book);
+
+        // Write the updated books list to the CSV file
+        writeBooksToCSV(books);
+
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k200OK);
+        resp->setBody("Book added successfully with ID: " + newBookID);
+        callback(resp);
+    }
+    catch (const std::exception& e)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody(e.what());
+        callback(resp);
+    }
+}
+
+// Handler for the updateBook endpoint
+void BookController::updateBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    auto json = req->getJsonObject();
+    if (!json)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Invalid JSON format");
+        callback(resp);
+        return;
+    }
+
+    // Extract bookID from the URL path
+    std::string path = req->getPath();
+    std::string bookID = path.substr(path.find_last_of('/') + 1);
+
+    if (bookID.empty())
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Book ID is required");
+        callback(resp);
+        return;
+    }
+
+    try
+    {
+        // Read existing books
+        auto books = readBooksFromCSV();
+
+        // Find the book to update
+        auto it = std::find_if(books.begin(), books.end(), [&bookID](const Book& book) {
+            return book.bookID == bookID;
+        });
+
+        if (it != books.end())
+        {
+            // Update the book details with the provided data
+            if (json->isMember("title")) it->title = json->get("title", "").asString();
+            if (json->isMember("authors")) it->authors = json->get("authors", "").asString();
+            if (json->isMember("avgRating")) it->avgRating = json->get("avgRating", "").asString();
+            if (json->isMember("isbn")) it->isbn = json->get("isbn", "").asString();
+            if (json->isMember("isbn13")) it->isbn13 = json->get("isbn13", "").asString();
+            if (json->isMember("languageCode")) it->languageCode = json->get("languageCode", "").asString();
+            if (json->isMember("numPages")) it->numPages = json->get("numPages", "").asString();
+            if (json->isMember("ratingsCount")) it->ratingsCount = json->get("ratingsCount", "").asString();
+            if (json->isMember("textReviewsCount")) it->textReviewsCount = json->get("textReviewsCount", "").asString();
+            if (json->isMember("publicationDate")) it->publicationDate = json->get("publicationDate", "").asString();
+            if (json->isMember("publisher")) it->publisher = json->get("publisher", "").asString();
+
+            // Write updated books list to CSV
+            writeBooksToCSV(books);
+
+            auto resp = drogon::HttpResponse::newHttpResponse();
+            resp->setStatusCode(drogon::k200OK);
+            resp->setBody("Book updated successfully");
+            callback(resp);
+        }
+        else
+        {
+            auto resp = drogon::HttpResponse::newHttpResponse();
+            resp->setStatusCode(drogon::k404NotFound);
+            resp->setBody("Book not found");
+            callback(resp);
+        }
+    }
+    catch (const std::exception& e)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody(e.what());
+        callback(resp);
+    }
+}
+
+// Check if a book with the given ID exists
+bool BookController::bookExists(const std::string& bookID)
+{
+    auto books = readBooksFromCSV();
+    return std::any_of(books.begin(), books.end(), [&bookID](const Book& book) {
+        return book.bookID == bookID;
+    });
+}
+
+// Handler for the deleteBook endpoint
+void BookController::deleteBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    // Extract bookID from the URL path
+    std::string path = req->getPath();
+    std::string bookID = path.substr(path.find_last_of('/') + 1);
+
+    if (bookID.empty())
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Book ID is required");
+        callback(resp);
+        return;
+    }
+
+    try
+    {
+        // Read existing books
+        auto books = readBooksFromCSV();
+
+        // Find and remove the book with the given bookID
+        auto it = std::remove_if(books.begin(), books.end(), [&bookID](const Book& book) {
+            return book.bookID == bookID;
+        });
+
+        if (it != books.end())
+        {
+            // Erase the removed book from the vector
+            books.erase(it, books.end());
+
+            // Write updated books list to CSV
+            writeBooksToCSV(books);
+
+            auto resp = drogon::HttpResponse::newHttpResponse();
+            resp->setStatusCode(drogon::k200OK);
+            resp->setBody("Book deleted successfully");
+            callback(resp);
+        }
+        else
+        {
+            auto resp = drogon::HttpResponse::newHttpResponse();
+            resp->setStatusCode(drogon::k404NotFound);
+            resp->setBody("Book not found");
+            callback(resp);
+        }
+    }
+    catch (const std::exception& e)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody(e.what());
+        callback(resp);
+    }
+}
+
+// Handler for the putBook endpoint
+void BookController::putBook(const drogon::HttpRequestPtr& req, std::function<void(const drogon::HttpResponsePtr&)>&& callback)
+{
+    auto json = req->getJsonObject();
+    if (!json)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Invalid JSON format");
+        callback(resp);
+        return;
+    }
+
+    // Extract bookID from the URL path
+    std::string path = req->getPath();
+    std::string bookID = path.substr(path.find_last_of('/') + 1);
+
+    if (bookID.empty())
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
+        resp->setBody("Book ID is required");
+        callback(resp);
+        return;
+    }
+
+    try
+    {
+        // Read existing books
+        auto books = readBooksFromCSV();
+
+        // Find the book to update
+        auto it = std::find_if(books.begin(), books.end(), [&bookID](const Book& book) {
+            return book.bookID == bookID;
+        });
+
+        if (it != books.end())
+        {
+            // Update the book details with the provided data
+            if (json->isMember("title")) it->title = json->get("title", "").asString();
+            if (json->isMember("authors")) it->authors = json->get("authors", "").asString();
+            if (json->isMember("avgRating")) it->avgRating = json->get("avgRating", "").asString();
+            if (json->isMember("isbn")) it->isbn = json->get("isbn", "").asString();
+            if (json->isMember("isbn13")) it->isbn13 = json->get("isbn13", "").asString();
+            if (json->isMember("languageCode")) it->languageCode = json->get("languageCode", "").asString();
+            if (json->isMember("numPages")) it->numPages = json->get("numPages", "").asString();
+            if (json->isMember("ratingsCount")) it->ratingsCount = json->get("ratingsCount", "").asString();
+            if (json->isMember("textReviewsCount")) it->textReviewsCount = json->get("textReviewsCount", "").asString();
+            if (json->isMember("publicationDate")) it->publicationDate = json->get("publicationDate", "").asString();
+            if (json->isMember("publisher")) it->publisher = json->get("publisher", "").asString();
+        }
+        else
+        {
+            // Create a new book if it does not exist
+            Book newBook;
+            newBook.bookID = bookID;
+            if (json->isMember("title")) newBook.title = json->get("title", "").asString();
+            if (json->isMember("authors")) newBook.authors = json->get("authors", "").asString();
+            if (json->isMember("avgRating")) newBook.avgRating = json->get("avgRating", "").asString();
+            if (json->isMember("isbn")) newBook.isbn = json->get("isbn", "").asString();
+            if (json->isMember("isbn13")) newBook.isbn13 = json->get("isbn13", "").asString();
+            if (json->isMember("languageCode")) newBook.languageCode = json->get("languageCode", "").asString();
+            if (json->isMember("numPages")) newBook.numPages = json->get("numPages", "").asString();
+            if (json->isMember("ratingsCount")) newBook.ratingsCount = json->get("ratingsCount", "").asString();
+            if (json->isMember("textReviewsCount")) newBook.textReviewsCount = json->get("textReviewsCount", "").asString();
+            if (json->isMember("publicationDate")) newBook.publicationDate = json->get("publicationDate", "").asString();
+            if (json->isMember("publisher")) newBook.publisher = json->get("publisher", "").asString();
+
+            books.push_back(newBook);
+        }
+
+        // Write updated books list to CSV
+        writeBooksToCSV(books);
+
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k200OK);
+        resp->setBody("Book updated or added successfully");
+        callback(resp);
+    }
+    catch (const std::exception& e)
+    {
+        auto resp = drogon::HttpResponse::newHttpResponse();
+        resp->setStatusCode(drogon::k400BadRequest);
         resp->setBody(e.what());
         callback(resp);
     }

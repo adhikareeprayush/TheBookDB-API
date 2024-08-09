@@ -1,5 +1,5 @@
 bookID,title,authors,avgRating,isbn,isbn13,languageCode,numPages,ratingsCount,textReviewsCount,publicationDate,publisher
-1,Harry Potter and the Half-Blood Prince (Harry Potter  #6),J.K. Rowling/Mary GrandPré,4.57,0439785960,9780439785969,eng,652,2095690,27591,9/16/2006,Scholastic Inc.
+1,Harry Potter and the Half-Blood Prince (Harry Potter  #6),J.K. Rowling/Mary GrandPré,4.50,0439785960,9780439785969,eng,652,2095690,27591,9/16/2006,Scholastic Inc.
 2,Harry Potter and the Order of the Phoenix (Harry Potter  #5),J.K. Rowling/Mary GrandPré,4.49,0439358078,9780439358071,eng,870,2153167,29221,9/1/2004,Scholastic Inc.
 4,Harry Potter and the Chamber of Secrets (Harry Potter  #2),J.K. Rowling,4.42,0439554896,9780439554893,eng,352,6333,244,11/1/2003,Scholastic
 5,Harry Potter and the Prisoner of Azkaban (Harry Potter  #3),J.K. Rowling/Mary GrandPré,4.56,043965548X,9780439655484,eng,435,2339585,36325,5/1/2004,Scholastic Inc.
@@ -11126,4 +11126,4 @@ bookID,title,authors,avgRating,isbn,isbn13,languageCode,numPages,ratingsCount,te
 45634,The Ice-Shirt (Seven Dreams #1),William T. Vollmann,3.96,0140131965,9780140131963,eng,415,820,95,8/1/1993,Penguin Books
 45639,Poor People,William T. Vollmann,3.72,0060878827,9780060878825,eng,434,769,139,2/27/2007,Ecco
 45641,Las aventuras de Tom Sawyer,Mark Twain,3.91,8497646983,9788497646987,spa,272,113,12,5/28/2006,Edimat Libros
-45642,To Kill a Mockingbird,Harper Lee,0.00,0061120081,9780061120084,eng,281,4570755,11512,07/11/1960,J.B. Lippincott & Co.
+45642,prayush,prayush,4.50,,,eng,652,2095690,27591,9/16/2006,Scholastic Inc.
